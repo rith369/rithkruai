@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>រៀនសិក្សា — ជ្រើសរើសមុខវិជ្ជា</title>
+<meta name="description" content="កម្មវិធីសិក្សា — ជ្រើសរើសមុខវិជ្ជាដើម្បីចាប់ផ្តើមរៀន">
+<meta name="theme-color" content="#8b6cf0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Status bar (mobile app chrome) -->
+<div class="status-bar" aria-hidden="true">
+  <span class="status-time">9:41</span>
+  <div class="status-icons">
+    <svg width="18" height="12" viewBox="0 0 18 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="0.5" fill="currentColor"/><rect x="5" y="5" width="3" height="7" rx="0.5" fill="currentColor"/><rect x="10" y="3" width="3" height="9" rx="0.5" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M8 9.8C8.6 9.8 9.1 10 9.5 10.4L8 12L6.5 10.4C6.9 10 7.4 9.8 8 9.8Z" fill="currentColor"/><path d="M5.3 7.1C6.1 6.4 7 6 8 6C9 6 9.9 6.4 10.7 7.1L9.4 8.5C9 8.2 8.5 8 8 8C7.5 8 7 8.2 6.6 8.5L5.3 7.1Z" fill="currentColor"/><path d="M2.6 4.4C4.1 3.1 6 2.3 8 2.3C10 2.3 11.9 3.1 13.4 4.4L12.1 5.8C10.9 4.8 9.5 4.3 8 4.3C6.5 4.3 5.1 4.8 3.9 5.8L2.6 4.4Z" fill="currentColor"/></svg>
+    <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="currentColor"/><rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor"/><path d="M23 4V8C23.8 7.6 24.3 6.9 24.3 6C24.3 5.1 23.8 4.4 23 4Z" fill="currentColor"/></svg>
+  </div>
+</div>
+
+<div class="app">
+
+  <!-- Header -->
+  <header class="app-header">
+    <button class="icon-btn back-btn" aria-label="ត្រឡប់ក្រោយ" id="backBtn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <h1 class="app-title">រៀនសិក្សា</h1>
+    <div class="streak-badge" role="status" aria-label="ថ្ងៃជាប់គ្នា ៥៤ ថ្ងៃ">
+      <span class="flame" aria-hidden="true">🔥</span>
+      <span class="streak-count">៥៤</span>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <nav class="tabs" role="tablist" aria-label="ប្រភេទមេរៀន">
+    <button class="tab active" role="tab" aria-selected="true" id="tab-foundations">មូលដ្ឋានគ្រឹះ</button>
+    <button class="tab" role="tab" aria-selected="false" id="tab-subjects">មុខវិជ្ជា</button>
+    <span class="tab-indicator" id="tabIndicator"></span>
+  </nav>
+
+  <!-- Card grid -->
+  <main class="grid" id="cardGrid" role="tabpanel" aria-labelledby="tab-foundations">
+    <!-- cards injected by script.js -->
+  </main>
+
+  <!-- Home indicator -->
+  <div class="home-indicator" aria-hidden="true"><span></span></div>
+</div>
+
+<template id="cardTemplate">
+  <article class="card" tabindex="0">
+    <div class="card-head">
+      <h2 class="card-title"></h2>
+      <button class="play-btn" aria-label="ចាប់ផ្តើមមេរៀន">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 4L19 12L6 20V4Z" fill="currentColor"/></svg>
+      </button>
+    </div>
+    <div class="card-illustration"></div>
+    <p class="card-desc"></p>
+    <div class="card-footer">
+      <span class="meta">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11V20H5.5C4.7 20 4 19.3 4 18.5V5.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H13V20H18.5C19.3 20 20 19.3 20 18.5V5.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <span class="points-text"></span>
+      </span>
+      <span class="meta">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12L15 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="time-text"></span>
+      </span>
+    </div>
+  </article>
+</template>
+
+<script src="script.js"></script>
+</body>
+</html>
